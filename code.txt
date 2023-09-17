@@ -1,0 +1,22 @@
+!pip install selenium
+#importing selenium library
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+print("""PRESS 1. TO OPEN GOOGLE SEARCH
+PRESS 2. TO OPEN YOUTUBE SEARCH""")
+
+ch=int(input())
+
+search=input("ENTER WHAT DO YOU WANT TO SEARCH= ")
+driver=webdriver.Chrome() 
+
+if ch==1:
+    driver.get("https://www.google.com/")
+    find=driver.find_element("name", "q")
+else:
+    driver.get("https://www.youtube.com/")
+    find=driver.find_element("name", "search_query")    
+
+find.send_keys(search)
+find.send_keys(Keys.ENTER)
